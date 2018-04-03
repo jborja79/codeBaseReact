@@ -1,0 +1,15 @@
+# Don't check auto-generated stuff into git
+coverage
+build
+node_modules
+stats.json
+npm-debug.log*
+
+# Cruft
+.DS_Store
+npm-debug.log
+yarn-error.log
+.idea
+
+# Editor garbage
+*.iml

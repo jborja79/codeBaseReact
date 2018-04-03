@@ -1,0 +1,18 @@
+{
+  "header_reply": {
+    "version": "v05",
+    "response_type": "response",
+    "transaction_id": "12345678889"
+  },
+  "response_status": {
+    "status": 0,
+    "code": 0,
+    "ext_code": 0,
+    "message": "OK",
+    "long_message": "OK"
+  },
+  "locale": "EN",
+  "objectTest": {
+      "text": "something from service"
+  }
+}
