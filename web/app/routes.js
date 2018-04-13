@@ -55,6 +55,25 @@ export default function createRoutes(store) {
             importModules.catch(errorLoading);
           },
         },
+        {
+          path: '/rooms',
+          name: 'rooms',
+          getComponent(nextState, cb) {
+            const importModules = Promise.all([
+              import('containers/Rooms/sagas'),
+              import('containers/Rooms'),
+            ]);
+
+            const renderRoute = loadModule(cb);
+
+            importModules.then(([sagas, component]) => {
+              injectSagas(sagas.default);
+              renderRoute(component);
+            });
+
+            importModules.catch(errorLoading);
+          },
+        },
       ],
     },
   ];

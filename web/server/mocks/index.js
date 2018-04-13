@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-/* Response data for end-points */
-const testmock = require('./static/testMock.json');
+const romsMock = require('./static/rooms.json');
 
 router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/static/index.html'));
@@ -12,7 +11,8 @@ router.get('/', (req, res) => {
 /**
  * Gets static details of all countries and currencies with names based on a given language.
  */
-router.get('/testmock', (req, res) => buildJSONResponse(res, testmock));
+
+router.get('/rooms', (req, res) => buildJSONResponse(res, romsMock));
 
 function buildJSONResponse(res, data) {
   res.set('Content-Type', 'application/json');

@@ -37,7 +37,8 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
   }
 
   render() {
-    console.log('LOGO:', this.props.logo);
+    console.log(this.props);
+    console.log(this.props.logo);
 
     return (
       <div>
@@ -48,7 +49,9 @@ export class App extends React.PureComponent { // eslint-disable-line react/pref
             { name: 'description', content: 'codebase' },
           ]}
         />
-        <WelcomeBox logo={this.props.appData.get('logo')} />
+        {(this.props.children.props.children) ?
+          React.Children.toArray(this.props.children.props.children) :
+          <WelcomeBox logo={this.props.appData.get('logo')} />}
       </div>
     );
   }
@@ -58,6 +61,7 @@ App.propTypes = {
   setLogo: PropTypes.func,
   appData: PropTypes.object,
   logo: PropTypes.string,
+  children: PropTypes.node,
 };
 
 function mapDispatchToProps(dispatch) {
